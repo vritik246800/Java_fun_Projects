@@ -30,8 +30,10 @@ MeuProjeto/
 javac -cp "lib/[Nome da biblioteca].jar" -d bin src/*.java
 java -cp "bin:lib/[Nome da biblioteca].jar" App
 
-
 ```
+Ou procura Java Project quando abres um e clica nos `...`
+Depois `config ClassPath`
+e `Libraries` e so fazer ADD
 # Para mudar o JDK no Linux
 Comandos
 ```
