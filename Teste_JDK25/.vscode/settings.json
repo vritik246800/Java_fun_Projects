@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/itextpdf-5.5.13_010841.jar",
+        "/home/vritik/Downloads/Helder/lib/itextpdf-5.5.13_010841.jar"
+    ]
+}
