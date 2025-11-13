@@ -283,23 +283,6 @@ javac -cp lib/gson-2.10.1.jar -d bin src/**/*.java
 
 ---
 
-# 🎨 Logo (SVG)
-
-Guarda em: `docs/logo.svg`
-
-```svg
-<svg width="180" height="180" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="100" cy="100" r="90" fill="#0A0F24" />
-  <circle cx="70" cy="70" r="26" fill="#636EFA" />
-  <circle cx="130" cy="130" r="26" fill="#EF553B" />
-  <circle cx="130" cy="70" r="26" fill="#00CC96" />
-  <line x1="70" y1="70" x2="130" y2="130" stroke="#636EFA" stroke-width="6" />
-  <line x1="70" y1="70" x2="130" y2="70" stroke="#636EFA" stroke-width="6" />
-</svg>
-```
-
----
-
 # 📜 Licença — MIT
 
 Este projeto é distribuído sob a licença MIT.  
