@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "java",
+        "name": "Executar JavaFX 25",
+        "request": "launch",
+        "mainClass": "App",
+        "vmArgs": "--module-path /Library/Java/JavaVirtualMachines/javafx-sdk-25/lib --add-modules javafx.controls"
+      }
+    ]
+  }
+  
