@@ -2,8 +2,18 @@ package ui;
 
 import ui.GraphPanel;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.JToolBar;
+import javax.swing.SwingUtilities;
 
 public class GraphNotesApp {
 	public static void main(String[] args) {
