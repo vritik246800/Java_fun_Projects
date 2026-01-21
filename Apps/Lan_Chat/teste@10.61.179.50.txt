@@ -1,0 +1,34 @@
+2026-01-21T00:22:24.157392 - Eu: teste
+2026-01-21T00:22:24.172825 - Recebido: teste
+2026-01-21T00:22:33.611570 - Eu: ads
+2026-01-21T00:22:33.612346 - Recebido: ads
+2026-01-21T00:24:11.368155 - Eu: teste de historia
+2026-01-21T00:24:11.369374 - Recebido: teste de historia
+2026-01-21T00:40:20.089198 - Eu: teste teste mais ainda ERRO no audio
+2026-01-21T00:40:20.092587 - Recebido: teste teste mais ainda ERRO no audio
+2026-01-21T01:07:06.220413 - Eu: teste
+2026-01-21T01:07:06.224172 - Recebido: teste
+2026-01-21T01:08:12.965394 - Eu: teste
+2026-01-21T01:08:12.969305 - Recebido: teste
+2026-01-21T01:16:27.093696 - Eu: teste
+2026-01-21T01:16:27.097998 - Recebido: teste
+2026-01-21T01:16:46.407071 - Eu: teste com system stray
+2026-01-21T01:16:46.410431 - Recebido: teste com system stray
+2026-01-21T01:19:02.411461 - Eu: es
+2026-01-21T01:19:02.414868 - Recebido: es
+2026-01-21T01:19:18.309955 - Eu: teste com butao da tecla enter para enviar
+2026-01-21T01:19:18.311095 - Recebido: teste com butao da tecla enter para enviar
+2026-01-21T01:21:33.930919 - 💬 Eu: teste com nova ui de claude
+2026-01-21T01:21:33.933066 - 📩 teste com nova ui de claude
+2026-01-21T01:21:48.404312 - 💬 Eu: nao esta mao hahaha
+2026-01-21T01:21:48.408935 - 📩 nao esta mao hahaha
+2026-01-21T01:27:25.339645 - 💬 Eu: teste
+2026-01-21T01:27:25.342047 - 📩 teste
+2026-01-21T01:29:08.650368 - 💬 Eu: teste
+2026-01-21T01:29:08.652611 - 📩 teste
+2026-01-21T01:29:31.572037 - 💬 Eu: teste com UDP dinamico
+2026-01-21T01:29:31.573741 - 📩 teste com UDP dinamico
+2026-01-21T01:29:52.916178 - 💬 Eu: nao esta mao com udp dinamico
+2026-01-21T01:29:52.917763 - 📩 nao esta mao com udp dinamico
+2026-01-21T01:34:29.870663 - 💬 Eu: kmk
+2026-01-21T01:34:29.888843 - 📩 kmk

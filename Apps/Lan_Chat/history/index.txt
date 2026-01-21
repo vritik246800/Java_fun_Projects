@@ -1,0 +1,5 @@
+teste_10_61_179_50|teste|10.61.179.50|💬 Eu: vou dar exemplo mais va...|1768943079004
+teste_10_61_179_50teste|teste|10.61.179.50 | 📩 teste
+ana_10_61_179_50|ana|10.61.179.50|💬 Eu: na boa|1768943213719
+joao_10_61_179_50|joao|10.61.179.50
+teste_10|teste|10|📩 na boa|1768943213724
