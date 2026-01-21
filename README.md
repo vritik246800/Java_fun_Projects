@@ -314,12 +314,4 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 ---
 
-**📞 Contato**
-
-Para dúvidas ou sugestões, abra uma issue ou entre em contato:
-- Email: seu.email@exemplo.com
-- LinkedIn: [seu-perfil](https://linkedin.com/in/seu-perfil)
-
----
-
 *Última atualização: Setembro 2025*
