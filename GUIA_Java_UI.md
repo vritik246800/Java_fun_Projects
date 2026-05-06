@@ -7,7 +7,7 @@
 1. [Estrutura Base](#1-estrutura-base)
 2. [JFrame — Janela Principal](#2-jframe--janela-principal)
 3. [Layouts — Todos os Disponíveis](#3-layouts--todos-os-disponíveis)
-4. [Menu (JMenuBar / JMenu / JMenuItem)](#4-menu-jmenubar--jmenu--jmenuitem)
+4. [Menu (JMenuBar / JMenu / JMenuItem)]
 5. [Componentes — Referência Completa](#5-componentes--referência-completa)
 6. [JTable — Tabela Completa](#6-jtable--tabela-completa)
 7. [Eventos — Referência Completa](#7-eventos--referência-completa)
