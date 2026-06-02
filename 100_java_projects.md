@@ -1,116 +1,102 @@
 # 💡 100 Ideias de Projetos em Java
 
-## 🟢 Projetos simples / para iniciantes
-
-- [ ] 1. Calculadora básica (adição, subtração, multiplicação, divisão)
-- [ ] 2. Conversor de moedas
-- [ ] 3. Contador de palavras / caracteres em texto
-- [ ] 4. Jogo da forca
-- [ ] 5. Jogo da velha (Tic Tac Toe)
-- [ ] 6. Adivinha o número (Number Guessing Game)
-- [ ] 7. Relógio digital / analógico
-- [ ] 8. Verificador de número primo
+- [x] 1. Simulador de banco (conta, depósito, saque, extrato)
+- [x] 2. Parser de JSON personalizado sem biblioteca externa
+- [ ] 3. Plataforma de agendamento online multi-tenant (tipo Calendly)
+- [ ] 4. SaaS de gestão de tarefas e sprints para equipes (tipo Trello)
+- [x] 5. Gerador de QR Code
+- [ ] 6. Plataforma de email marketing com templates e analytics
+- [ ] 7. SaaS de CRM para pequenas empresas (contatos, pipeline de vendas)
+- [ ] 8. Plataforma de faturamento e assinaturas recorrentes (tipo Stripe Billing)
 - [x] 9. Cálculo de fatorial (iterativo / recursivo)
-- [ ] 10. Conversão de unidades (km ↔ milhas, °C ↔ °F)
-- [ ] 11. Lista de tarefas (To-Do List)
-- [ ] 12. Gerenciador de senhas simples
+- [x] 10. Conversor de Markdown para HTML
+- [ ] 11. SaaS de helpdesk / suporte ao cliente com sistema de tickets
+- [ ] 12. Plataforma de link shortener com dashboard de analytics
 - [x] 13. Editor de texto básico
 - [x] 14. Bloco de notas (Notepad)
-- [ ] 15. Timer / cronômetro
+- [x] 15. Agendador de jobs simples (cron-like)
 - [x] 16. Jogo da cobrinha (Snake)
-- [ ] 17. Jogo de Pong em 2D
+- [ ] 17. SaaS de time tracking com relatórios por projeto e cliente
 - [x] 18. Gerador de números aleatórios
-- [ ] 19. Aplicativo de lembretes simples
-- [ ] 20. Verificação de palíndromo
-
-## 🔵 Projetos intermediários
-
+- [ ] 19. Plataforma de formulários e pesquisas com respostas em tempo real
+- [x] 20. Implementação visual de estruturas de dados (árvore, grafo)
 - [x] 21. Sistema de gerenciamento de biblioteca
-- [ ] 22. Sistema de gestão de alunos / notas
-- [ ] 23. Sistema de clientes para pequenas empresas
-- [ ] 24. Sistema de agendamento de consultas médicas
-- [ ] 25. Sistema de reservas de hotel
+- [ ] 22. SaaS de monitoramento de uptime e alertas para URLs
+- [ ] 23. Plataforma de onboarding de usuários com checklists interativos
+- [x] 24. Analisador de logs com filtros e estatísticas
+- [ ] 25. SaaS de gerenciamento de contratos com assinatura digital
 - [x] 26. Sistema de gerenciamento de estoque / inventário
 - [x] 27. Sistema de vendas / ponto de venda (POS)
-- [ ] 28. Sistema de emissão de bilhetes de evento
+- [x] 28. Visualizador interativo de árvore binária
 - [x] 29. Aplicativo de chat local (usando sockets)
-- [ ] 30. Aplicativo de chat cliente-servidor via rede
+- [x] 30. Aplicativo de chat cliente-servidor via rede
 - [x] 31. Jogo de xadrez
-- [ ] 32. Jogo de Sudoku
-- [ ] 33. Jogo de cartas (Blackjack, Poker simplificado)
-- [ ] 34. Sistema de pesquisa / filtragem de produtos
-- [ ] 35. Sistema de currículo / portfólio online
-- [ ] 36. Sistema de monitoramento de finanças pessoais
+- [x] 32. Gerador de labirinto com solver (BFS / DFS)
+- [ ] 33. Plataforma de análise de produto (eventos, funil, retenção)
+- [x] 34. Algoritmos de ordenação com visualização animada
+- [ ] 35. SaaS de gestão de membros e comunidade online
+- [ ] 36. Plataforma de notas colaborativas com espaços de trabalho
 - [x] 37. Gerador de relatórios (PDF, CSV)
-- [ ] 38. Sistema de blog (posts, comentários)
+- [ ] 38. SaaS de automação de relatórios financeiros para PMEs
 - [x] 39. Aplicativo de upload / download de arquivos
-- [ ] 40. Sistema de votações / enquetes
-
-## 🔷 Projetos com banco de dados / CRUD mais estruturado
-
+- [ ] 40. Plataforma de landing pages com editor drag-and-drop
 - [x] 41. Sistema de cadastro / login de usuários
 - [x] 42. Sistema de biblioteca com base de dados
-- [ ] 43. Sistema de hospital – prontuários, médicos, pacientes
-- [ ] 44. Sistema de transporte público — rotas e horários
-- [ ] 45. Reserva de ônibus / trem
-- [ ] 46. Sistema de restaurante — pedidos, mesas
-- [ ] 47. E-commerce básico
+- [x] 43. Simulador de banco de dados em memória (mini SQLite)
+- [ ] 44. SaaS de envio de emails transacionais com logs e webhooks
+- [x] 45. Downloader de arquivos com barra de progresso e retentativas
+- [x] 46. Sistema de restaurante — pedidos, mesas
+- [ ] 47. Plataforma de chatbot builder visual sem código
 - [x] 48. Carrinho de compras + checkout
-- [ ] 49. Sistema de hotel com check-in / check-out
-- [ ] 50. Sistema escolar com disciplinas, professores e alunos
-- [ ] 51. Plataforma de cursos online
-- [ ] 52. Sistema de certificação / emissão de certificados
-- [ ] 53. Sistema de recrutamento / RH
-- [ ] 54. Plataforma de fórum / comunidade
-- [ ] 55. Plataforma de avaliação / feedback
-- [ ] 56. Sistema de suporte / help desk
-- [ ] 57. Gerenciamento de inventário com múltiplos depósitos
-- [ ] 58. Aplicativo para controle de gastos e receitas
-- [ ] 59. Plataforma de reservas de acomodações (tipo Airbnb simples)
-- [ ] 60. Sistema de catálogo de filmes / reviews
-
-## 🟣 Projetos mais avançados / com recursos técnicos extras
-
-- [ ] 61. Sistema de recomendação (filmes, livros etc.)
-- [ ] 62. Busca com filtros avançados
-- [ ] 63. Sistema de notificações / alertas
-- [ ] 64. Servidor HTTP mínimo
-- [ ] 65. API REST em Java (Spring, JAX-RS)
-- [ ] 66. Microserviços simples
-- [ ] 67. Integração com APIs externas (por exemplo, API de clima)
-- [ ] 68. Aplicativo de rastreamento GPS
-- [ ] 69. Chat em tempo real (WebSocket)
-- [ ] 70. Sistema de criptografia / encriptação de arquivos
-- [ ] 71. Compressão / descompressão de imagens
-- [ ] 72. Visualizador / editor de imagens
-- [ ] 73. OCR (reconhecimento de texto simples)
-- [ ] 74. Processamento de linguagem natural (NLP) básico
-- [ ] 75. Agenda com sincronização com serviços web
+- [ ] 49. SaaS de gestão de afiliados e comissões
+- [ ] 50. Plataforma de monitoramento de menções em redes sociais
+- [ ] 51. SaaS de controle de acesso SSO (SAML / OIDC simples)
+- [ ] 52. Plataforma de gestão de assets digitais (DAM)
+- [ ] 53. SaaS de reservas e agendamentos para serviços locais
+- [ ] 54. Plataforma de análise de qualidade de código com métricas
+- [ ] 55. SaaS de auditoria de acessos e compliance logs
+- [ ] 56. Plataforma de webhooks como serviço (receber e reenviar eventos)
+- [ ] 57. SaaS de notificações push multi-canal (email, SMS, in-app)
+- [ ] 58. Plataforma de gerenciamento de APIs com rate limiting e API keys
+- [ ] 59. SaaS de workflow / automação entre apps (tipo Zapier simples)
+- [ ] 60. Plataforma de LMS com progresso, quizzes e certificados
+- [ ] 61. SaaS de feedback e NPS de produto
+- [ ] 62. Plataforma de badges e certificações digitais para cursos
+- [x] 63. Sistema de notificações / alertas
+- [x] 64. Servidor HTTP mínimo do zero (sem frameworks)
+- [x] 65. API REST em Java (Spring, JAX-RS)
+- [ ] 66. SaaS de testes A/B com segmentação de usuários
+- [ ] 67. Plataforma de análise de sentimentos para reviews de clientes
+- [ ] 68. SaaS de recomendação de produtos com base no histórico
+- [x] 69. Chat em tempo real (WebSocket)
+- [x] 70. Sistema de criptografia / encriptação de arquivos
+- [ ] 71. Plataforma de coleta e visualização de métricas de negócio (KPIs)
+- [ ] 72. SaaS de backup automatizado para bancos de dados em nuvem
+- [x] 73. Reconhecimento simples de padrões em imagens
+- [ ] 74. Plataforma de gestão de parceiros e integrações
+- [ ] 75. SaaS de mapa de lojas / pontos de entrega para e-commerce
 - [x] 76. Dashboard / gráficos interativos
-- [ ] 77. Simulação (tráfego, ecossistemas etc.)
-- [ ] 78. Gerenciador de senhas com criptografia forte
-- [ ] 79. Encrypt / decrypt de mensagens
-- [ ] 80. Aplicativo de reconhecimento facial (usando bibliotecas externas)
-
-## 🔺 Projetos desafiadores / experientes
-
-- [ ] 81. Sistema de votação distribuída com blockchain simples
-- [ ] 82. Motor de busca simples
-- [ ] 83. Compilador ou interpretador minimalista
-- [ ] 84. Motor de jogo 3D (com Java + bibliotecas gráficas)
-- [ ] 85. Sistema de monitoramento de rede / sniffer de pacotes
-- [ ] 86. Simulação de ambiente de rede (pacotes, roteadores)
-- [ ] 87. Chat distribuído P2P
-- [ ] 88. Processamento de streaming de dados (tempo real)
-- [ ] 89. Agente / IA simples para jogos
-- [ ] 90. Machine Learning básico (classificação, clustering) em Java
-- [ ] 91. Plataforma de leilão online
-- [ ] 92. Sistema de recomendação com aprendizado de máquina
-- [ ] 93. Aplicativo de reconhecimento de voz
-- [ ] 94. Assistente virtual simples
-- [ ] 95. Simulação de sistema solar / física
-- [ ] 96. Visualização 3D interativa
-- [ ] 97. Detector de plágio
-- [ ] 98. Gerador de música / sequenciador (usando bibliotecas de áudio)
-- [ ] 99. Busca de imagens por similaridade
-- [ ] 100. Plataforma colaborativa em tempo real (edição de documentos)
+- [ ] 77. Plataforma de deploy e CI/CD simples para projetos web
+- [ ] 78. SaaS de processamento e resumo de documentos PDF
+- [ ] 79. Plataforma de inventário multi-loja com sincronização em tempo real
+- [ ] 80. SaaS de faturamento recorrente com dunning automático
+- [ ] 81. Plataforma de gestão de projetos com Gantt e dependências
+- [ ] 82. SaaS de live chat para suporte ao cliente no site
+- [ ] 83. Plataforma de coleta de feedbacks in-app com NPS
+- [x] 84. Simulador de física 2D (colisões, gravidade)
+- [ ] 85. SaaS de análise de funil de conversão com relatórios visuais
+- [x] 86. Simulador de roteamento de rede (Dijkstra em grafos)
+- [x] 87. Chat distribuído P2P (sem servidor central)
+- [ ] 88. Plataforma de gerenciamento de assinaturas e planos (multi-tier)
+- [x] 89. Agente para resolução de puzzles (A*, minimax)
+- [ ] 90. SaaS de integração de APIs (iPaaS) com conectores visuais
+- [ ] 91. Plataforma de gestão white-label para revendedores
+- [ ] 92. SaaS de acompanhamento de OKRs e metas para equipes
+- [ ] 93. Plataforma de relatórios white-label para agências digitais
+- [ ] 94. SaaS de monitoramento de performance de aplicações (APM simples)
+- [ ] 95. Plataforma de gerenciamento de conteúdo para criadores (Media Hub)
+- [x] 96. Visualização 3D interativa
+- [ ] 97. SaaS de análise de churn e retenção de clientes
+- [x] 98. Sequenciador de áudio MIDI com interface gráfica
+- [ ] 99. Plataforma de gerenciamento de dependências e atualizações de libs
+- [ ] 100. SaaS de controle financeiro para freelancers (invoices, impostos)
