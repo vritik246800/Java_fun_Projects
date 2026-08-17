@@ -1,3 +1,4 @@
+package thread_runnable;
 
 class RunnableExemplo implements Runnable 
 {
