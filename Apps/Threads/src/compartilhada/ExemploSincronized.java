@@ -15,7 +15,7 @@ public class ExemploSincronized {
 			@Override
 			public void run() {
 				for(int i=0;i<QUANTIDADE; i++) {
-					VALORES.add(++varCompartilhada);
+					syync();
 				}
 				
 			}
@@ -27,7 +27,7 @@ public class ExemploSincronized {
 			@Override
 			public void run() {
 				for(int i=0;i<QUANTIDADE; i++) {
-					VALORES.add(++varCompartilhada);
+					syync();
 				}
 				
 			}
@@ -40,7 +40,7 @@ public class ExemploSincronized {
 			@Override
 			public void run() {
 				for(int i=0;i<QUANTIDADE; i++) {
-					VALORES.add(++varCompartilhada);
+					syync();
 				}
 				
 			}
@@ -64,6 +64,10 @@ public class ExemploSincronized {
 			soma+=valor;
 		}
 		IO.println("Soma: " + soma);
+	}
+	
+	public static synchronized void syync() {
+		VALORES.add(++varCompartilhada);
 	}
 	
 }
