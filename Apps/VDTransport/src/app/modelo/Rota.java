@@ -35,6 +35,15 @@ public class Rota {
         return paragens;
     }
 
+    /** Comprimento total do percurso, em km. */
+    public double comprimentoKm() {
+        double total = 0;
+        for (int i = 1; i < paragens.size(); i++) {
+            total += paragens.get(i - 1).distanciaKm(paragens.get(i));
+        }
+        return total;
+    }
+
     public String corEmHex() {
         return String.format("#%02X%02X%02X", cor.getRed(), cor.getGreen(), cor.getBlue());
     }
