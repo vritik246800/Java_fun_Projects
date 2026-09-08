@@ -57,28 +57,9 @@ public class Veiculo {
         actualizarPosicao();
     }
 
-    /** Distância real (haversine) entre duas paragens, em km. */
-    public static double distanciaKm(Paragem a, Paragem b) {
-        double lat1 = Math.toRadians(a.getLatitude());
-        double lat2 = Math.toRadians(b.getLatitude());
-        double dLat = lat2 - lat1;
-        double dLon = Math.toRadians(b.getLongitude() - a.getLongitude());
-        double h = Math.sin(dLat / 2) * Math.sin(dLat / 2)
-                + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        return 6371.0 * 2 * Math.asin(Math.sqrt(h));
-    }
-
     /** Comprimento total da rota do veículo, em km. */
     public double comprimentoRotaKm() {
-        if (rota == null) {
-            return 0;
-        }
-        List<Paragem> ps = rota.getParagens();
-        double total = 0;
-        for (int i = 1; i < ps.size(); i++) {
-            total += distanciaKm(ps.get(i - 1), ps.get(i));
-        }
-        return total;
+        return rota == null ? 0 : rota.comprimentoKm();
     }
 
     /** Avança o veículo ao longo da rota; no fim inverte o sentido (ida e volta). */
@@ -113,7 +94,7 @@ public class Veiculo {
         for (int i = 1; i < ps.size(); i++) {
             Paragem a = ps.get(i - 1);
             Paragem b = ps.get(i);
-            double seg = distanciaKm(a, b);
+            double seg = a.distanciaKm(b);
             if (restante <= seg) {
                 double f = seg == 0 ? 0 : restante / seg;
                 posicao = new GeoPosition(
