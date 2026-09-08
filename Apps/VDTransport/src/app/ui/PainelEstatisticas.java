@@ -116,6 +116,7 @@ public class PainelEstatisticas extends JPanel {
         plot.setLabelGenerator(null); // rótulos só na legenda, sobram poucos pixéis
         plot.setCircular(true);
         plot.setOutlineVisible(false);
+        plot.setShadowPaint(null); // a sombra do JFreeChart destoa de um tema flat
         aplicarTema(grafico, plot);
         return grafico;
     }
