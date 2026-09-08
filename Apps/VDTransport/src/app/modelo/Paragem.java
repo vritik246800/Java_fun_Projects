@@ -5,6 +5,8 @@ import org.jxmapviewer.viewer.GeoPosition;
 /** Paragem de transporte público (ponto no mapa de Moçambique). */
 public class Paragem {
 
+    private static final double RAIO_TERRA_KM = 6371.0;
+
     private final int id;
     private final String nome;
     private final double latitude;
@@ -35,6 +37,17 @@ public class Paragem {
 
     public GeoPosition geo() {
         return new GeoPosition(latitude, longitude);
+    }
+
+    /** Distância real (haversine) até outra paragem, em km. */
+    public double distanciaKm(Paragem outra) {
+        double lat1 = Math.toRadians(latitude);
+        double lat2 = Math.toRadians(outra.latitude);
+        double dLat = lat2 - lat1;
+        double dLon = Math.toRadians(outra.longitude - longitude);
+        double h = Math.sin(dLat / 2) * Math.sin(dLat / 2)
+                + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        return RAIO_TERRA_KM * 2 * Math.asin(Math.sqrt(h));
     }
 
     @Override
