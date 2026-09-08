@@ -37,11 +37,13 @@ public class PainelMapa extends JXMapViewer {
 
     private static final Color COR_PARAGEM_FORA = new Color(0x9E9E9E);
     private static final Color COR_PARAGEM = new Color(0x37474F);
+    private static final Color COR_PERCURSO = new Color(0xFF6F00);
 
     private final List<Rota> rotas;
     private final List<Paragem> paragens;
     private final List<Veiculo> veiculos;
     private Rota rotaSelecionada;
+    private List<Paragem> percurso = List.of();
     private Consumer<GeoPosition> aoClicar;
 
     public PainelMapa(List<Rota> rotas, List<Paragem> paragens, List<Veiculo> veiculos) {
@@ -80,6 +82,12 @@ public class PainelMapa extends JXMapViewer {
         repaint();
     }
 
+    /** Percurso calculado a destacar por cima das rotas (null ou vazio limpa-o). */
+    public void setPercurso(List<Paragem> percurso) {
+        this.percurso = percurso == null ? List.of() : percurso;
+        repaint();
+    }
+
     /** Activa (ou desactiva, com null) o modo "clique no mapa cria paragem". */
     public void setModoAdicionarParagem(Consumer<GeoPosition> accao) {
         this.aoClicar = accao;
@@ -90,18 +98,27 @@ public class PainelMapa extends JXMapViewer {
 
     /** Ajusta o zoom para mostrar todas as paragens. */
     public void enquadrar() {
-        if (paragens.isEmpty()) {
+        enquadrar(paragens);
+    }
+
+    /** Ajusta o zoom e o centro para mostrar as paragens indicadas. */
+    public void enquadrar(List<Paragem> alvo) {
+        if (alvo == null || alvo.isEmpty()) {
             return;
         }
         Set<GeoPosition> posicoes = new HashSet<>();
-        for (Paragem p : paragens) {
+        for (Paragem p : alvo) {
             posicoes.add(p.geo());
+        }
+        if (posicoes.size() == 1) {
+            setCenterPosition(posicoes.iterator().next()); // uma só paragem: centrar, sem mexer no zoom
+            return;
         }
         calculateZoomFrom(posicoes);
     }
 
     public void zoomMais() {
-        setZoom(Math.max(0, getZoom() - 1));
+        setZoom(Math.max(getTileFactory().getInfo().getMinimumZoomLevel(), getZoom() - 1));
     }
 
     public void zoomMenos() {
@@ -116,6 +133,7 @@ public class PainelMapa extends JXMapViewer {
         for (Rota rota : rotas) {
             pintarRota(g, mapa, vista, rota);
         }
+        pintarPercurso(g, mapa, vista);
         for (Paragem p : paragens) {
             pintarParagem(g, mapa, vista, p);
         }
@@ -159,6 +177,41 @@ public class PainelMapa extends JXMapViewer {
         g.setStroke(new BasicStroke(seleccionada ? 4.5f : 3f,
                 BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
         g.draw(caminho);
+    }
+
+    private void pintarPercurso(Graphics2D g, JXMapViewer mapa, Rectangle vista) {
+        if (percurso.size() < 2) {
+            return;
+        }
+        Path2D caminho = new Path2D.Double();
+        for (int i = 0; i < percurso.size(); i++) {
+            Point2D p = pixel(mapa, vista, percurso.get(i).geo());
+            if (i == 0) {
+                caminho.moveTo(p.getX(), p.getY());
+            } else {
+                caminho.lineTo(p.getX(), p.getY());
+            }
+        }
+        g.setColor(Color.WHITE); // contorno, para o percurso se ler por cima de qualquer rota
+        g.setStroke(new BasicStroke(10f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+        g.draw(caminho);
+        g.setColor(COR_PERCURSO);
+        g.setStroke(new BasicStroke(5f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+        g.draw(caminho);
+
+        marcarExtremo(g, mapa, vista, percurso.get(0));
+        marcarExtremo(g, mapa, vista, percurso.get(percurso.size() - 1));
+    }
+
+    private void marcarExtremo(Graphics2D g, JXMapViewer mapa, Rectangle vista, Paragem p) {
+        Point2D pt = pixel(mapa, vista, p.geo());
+        int x = (int) pt.getX();
+        int y = (int) pt.getY();
+        g.setColor(Color.WHITE);
+        g.fillOval(x - 7, y - 7, 14, 14);
+        g.setColor(COR_PERCURSO);
+        g.setStroke(new BasicStroke(3f));
+        g.drawOval(x - 7, y - 7, 14, 14);
     }
 
     private void pintarParagem(Graphics2D g, JXMapViewer mapa, Rectangle vista, Paragem p) {
