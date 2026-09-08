@@ -3,6 +3,7 @@ package app.rede;
 import app.modelo.Paragem;
 import app.modelo.Rota;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,18 +19,39 @@ import org.jgrapht.graph.SimpleWeightedGraph;
  */
 public final class RedeTransportes {
 
-    /** Resultado de um cálculo de percurso: paragens por ordem e rota usada em cada troço. */
-    public record Percurso(List<Paragem> paragens, List<Rota> rotas, double km) {
+    /**
+     * Resultado de um cálculo de percurso: as paragens por ordem e, para cada troço
+     * entre duas paragens seguidas, as rotas que o servem.
+     */
+    public record Percurso(List<Paragem> paragens, List<List<Rota>> rotasPorTroco, double km) {
 
-        /** Mudanças de rota ao longo do percurso. */
+        /**
+         * Mudanças de rota ao longo do percurso. Só conta quando nenhuma rota serve os
+         * dois troços seguidos — troços partilhados por várias rotas não são transbordo.
+         */
         public int transbordos() {
             int n = 0;
-            for (int i = 1; i < rotas.size(); i++) {
-                if (rotas.get(i) != rotas.get(i - 1)) {
+            for (int i = 1; i < rotasPorTroco.size(); i++) {
+                if (Collections.disjoint(rotasPorTroco.get(i), rotasPorTroco.get(i - 1))) {
                     n++;
                 }
             }
             return n;
+        }
+
+        /** Rota a mostrar num troço: mantém a do troço anterior sempre que também serve este. */
+        public Rota rotaDoTroco(int i) {
+            List<Rota> aqui = rotasPorTroco.get(i);
+            if (aqui.isEmpty()) {
+                return null;
+            }
+            if (i > 0) {
+                Rota anterior = rotaDoTroco(i - 1);
+                if (aqui.contains(anterior)) {
+                    return anterior;
+                }
+            }
+            return aqui.get(0);
         }
 
         /** Duração estimada, em minutos, à velocidade média indicada. */
@@ -40,7 +62,7 @@ public final class RedeTransportes {
 
     private final SimpleWeightedGraph<Paragem, DefaultWeightedEdge> grafo =
             new SimpleWeightedGraph<>(DefaultWeightedEdge.class);
-    private final Map<DefaultWeightedEdge, Rota> rotaDaLigacao = new HashMap<>();
+    private final Map<DefaultWeightedEdge, List<Rota>> rotasDaLigacao = new HashMap<>();
 
     public RedeTransportes(List<Rota> rotas) {
         for (Rota rota : rotas) {
@@ -54,17 +76,6 @@ public final class RedeTransportes {
         }
     }
 
-    /** Paragens que fazem parte da rede (pertencem a pelo menos uma rota). */
-    public List<Paragem> paragensLigadas(List<Paragem> candidatas) {
-        List<Paragem> lista = new ArrayList<>();
-        for (Paragem p : candidatas) {
-            if (grafo.containsVertex(p)) {
-                lista.add(p);
-            }
-        }
-        return lista;
-    }
-
     /** Percurso mais curto entre duas paragens, ou null se não existir ligação. */
     public Percurso caminhoMaisCurto(Paragem origem, Paragem destino) {
         if (origem == null || destino == null || origem.equals(destino)
@@ -76,19 +87,24 @@ public final class RedeTransportes {
         if (caminho == null) {
             return null;
         }
-        List<Rota> usadas = new ArrayList<>();
+        List<List<Rota>> porTroco = new ArrayList<>();
         for (DefaultWeightedEdge ligacao : caminho.getEdgeList()) {
-            usadas.add(rotaDaLigacao.get(ligacao));
+            porTroco.add(rotasDaLigacao.get(ligacao));
         }
-        return new Percurso(caminho.getVertexList(), usadas, caminho.getWeight());
+        return new Percurso(caminho.getVertexList(), porTroco, caminho.getWeight());
     }
 
     private void ligar(Paragem a, Paragem b, Rota rota) {
-        if (a.equals(b) || grafo.containsEdge(a, b)) {
-            return; // sem lacetes nem ligações repetidas (a distância seria a mesma)
+        if (a.equals(b)) {
+            return; // sem lacetes
         }
-        DefaultWeightedEdge ligacao = grafo.addEdge(a, b);
+        DefaultWeightedEdge ligacao = grafo.getEdge(a, b);
+        if (ligacao != null) {
+            rotasDaLigacao.get(ligacao).add(rota); // troço partilhado por mais do que uma rota
+            return;
+        }
+        ligacao = grafo.addEdge(a, b);
         grafo.setEdgeWeight(ligacao, a.distanciaKm(b));
-        rotaDaLigacao.put(ligacao, rota);
+        rotasDaLigacao.put(ligacao, new ArrayList<>(List.of(rota)));
     }
 }
