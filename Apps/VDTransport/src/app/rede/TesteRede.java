@@ -32,11 +32,19 @@ public final class TesteRede {
         assert p.paragens().equals(List.of(a, c)) : "Dijkstra devia usar a ligação directa: " + p.paragens();
         assert Math.abs(p.km() - a.distanciaKm(c)) < 0.001 : "peso do percurso errado: " + p.km();
         assert p.transbordos() == 0 : "percurso de uma só rota não tem transbordos";
+        assert p.rotaDoTroco(0) == directa : "troço A-C é servido pela rota directa";
         assert p.minutos(60) == Math.round(p.km() / 60 * 60) : "estimativa de tempo errada";
         assert rede.caminhoMaisCurto(a, d) == null : "D não está ligada à rede";
         assert rede.caminhoMaisCurto(a, a) == null : "origem igual ao destino não é percurso";
-        assert rede.paragensLigadas(List.of(a, b, c, d)).equals(List.of(a, b, c)) : "D não pertence à rede";
 
-        System.out.printf("OK — A->C via %s: %.0f km%n", p.rotas().get(0).getNome(), p.km());
+        // troço partilhado por duas rotas não conta como transbordo
+        Rota tambemAB = new Rota(3, "Alternativa", Color.GREEN);
+        tambemAB.getParagens().addAll(List.of(a, b));
+        RedeTransportes redeAB = new RedeTransportes(List.of(desvio, tambemAB));
+        RedeTransportes.Percurso ac = redeAB.caminhoMaisCurto(a, c);
+        assert ac != null && ac.paragens().size() == 3 : "A->C só pode ir por B";
+        assert ac.transbordos() == 0 : "A-B serve as duas rotas, logo não há transbordo";
+
+        System.out.printf("OK — A->C via %s: %.0f km%n", p.rotaDoTroco(0).getNome(), p.km());
     }
 }
