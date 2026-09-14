@@ -1,4 +1,4 @@
-package compartilhada;
+package iv_compartilhada;
 
 class TestThread {
 	
