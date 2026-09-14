@@ -1,4 +1,4 @@
-package compartilhada;
+package iv_compartilhada;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
