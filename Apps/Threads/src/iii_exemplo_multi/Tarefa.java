@@ -1,4 +1,4 @@
-package exemplo_multi;
+package iii_exemplo_multi;
 
 class Tarefa extends Thread {
 	private final long VALORINICIAL, VALORFINAL;
