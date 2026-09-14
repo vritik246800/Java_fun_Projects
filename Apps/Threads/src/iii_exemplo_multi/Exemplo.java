@@ -1,4 +1,4 @@
-package exemplo_multi;
+package iii_exemplo_multi;
 
 class Exemplo {
 	void main() {
