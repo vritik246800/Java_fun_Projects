@@ -1,4 +1,4 @@
-# Java_Facul_Backup
+# Java_fun_Project
 
 Backup dos meus projetos Java de faculdade — exercícios, trabalhos práticos e aplicações completas desenvolvidas ao longo da Licenciatura em Engenharia Informática.
 
@@ -40,7 +40,7 @@ Backup dos meus projetos Java de faculdade — exercícios, trabalhos práticos 
 ## 📁 Estrutura do Repositório
 
 ```
-Java_Facul_Backup/
+Java_fun_Project/
 ├── Apps/                  # 80 projetos: aplicações, exercícios e trabalhos
 ├── Componentes/           # Componentes Swing personalizados e utilitários
 ├── JavaFX_Teste/          # Único projeto JavaFX (src/ + lib/)
@@ -242,7 +242,7 @@ chore:    manutenção
 Licenciatura em Engenharia Informática
 
 - GitHub: [@vritik246800](https://github.com/vritik246800)
-- Repositório: [Java_Facul_Backup](https://github.com/vritik246800/Java_Facul_Backup)
+- Repositório: [Java_fun_Project](https://github.com/vritik246800/Java_fun_Project)
 
 ---
 
