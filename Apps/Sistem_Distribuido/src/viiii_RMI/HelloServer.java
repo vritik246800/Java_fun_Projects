@@ -7,29 +7,30 @@ import java.rmi.server.ExportException;
 import java.rmi.server.UnicastRemoteObject;
 
 public class HelloServer extends UnicastRemoteObject implements HelloWorld {
-	public HelloServer() throws RemoteException {
-		super();
-	}
 
-	// static: main de instância faria o launcher criar (e exportar) um HelloServer extra
-	public static void main(String [] args) {
-		try {
-			// arranca o rmiregistry dentro desta JVM; se já houver um a correr (porta 1099 ocupada), usa esse
-			try {
-				LocateRegistry.createRegistry(1099);
-			} catch (ExportException e) {
-				IO.println("rmiregistry já a correr na porta 1099");
-			}
-			HelloServer obj = new HelloServer();
-			Naming.rebind("//localhost/HelloWorld", obj);
-			IO.println("HelloServer registado como //localhost/HelloWorld");
-		} catch (Exception ex) {
-			IO.println("Exception: " + ex.getMessage());
-		}
-	}
+    public HelloServer() throws RemoteException {
+        super();
+    }
 
-	public String hello() throws RemoteException {
-		IO.println("Executando hello()");
-		return "Hello!!!";
-	}
+    @Override
+    public String hello() throws RemoteException {
+        System.out.println("Executando hello()");
+        return "Hello Ventura!!!";
+    }
+
+    public static void main(String[] args) {
+        try {
+        		try {
+        		LocateRegistry.createRegistry(1099);	
+        		}catch(ExportException e) {
+        			System.out.println("Rmi já está a correr");
+        		}	
+            HelloServer obj = new HelloServer();
+            //IP : 10.206.140.91
+            Naming.rebind("//10.206.140.91/HelloWorld", obj);
+            System.out.println("Servidor RMI pronto...");
+        } catch (Exception ex) {
+            System.out.println("Exception: " + ex.getMessage());
+        }
+    }
 }
