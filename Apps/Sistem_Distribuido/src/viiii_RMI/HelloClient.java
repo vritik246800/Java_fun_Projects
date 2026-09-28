@@ -2,17 +2,15 @@ package viiii_RMI;
 
 import java.rmi.Naming;
 
-class HelloClient {
-	void main(String[] args) {
-		if (args.length < 1) {
-			IO.println("Uso: java viiii_RMI.HelloClient <host>");
-			System.exit(0);
-		}
-		try {
-			HelloWorld obj = (HelloWorld) Naming.lookup("//" + args[0] + "/HelloWorld");
-			IO.println("Mensagem do Servidor: " + obj.hello());
-		} catch (Exception ex) {
-			IO.println("Exception: " + ex.getMessage());
-		}
-	}
+public class HelloClient {
+    public static void main(String[] args) {
+        try {
+            String host = (args.length > 0) ? args[0] : "10.206.140.201";
+            // IP : Ventura
+            HelloWorld obj = (HelloWorld) Naming.lookup("//" + host + "/HelloWorld");
+            System.out.println("Mensagem do Servidor: " + obj.hello());
+        } catch (Exception ex) {
+            System.out.println("Exception: " + ex.getMessage());
+        }
+    }
 }
